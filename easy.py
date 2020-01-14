@@ -1,5 +1,41 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# 38. Count and Say
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        def recu(s:str):
+            r = ""
+            ct = 0
+            t = s[0]
+            for i in s:
+                if i == t:
+                    ct += 1
+                else:
+                    r += (str(ct) + str(t))
+                    t = i
+                    ct = 1
+            r += (str(ct) + str(t))
+            return r
+    
+        t = '1'
+        for i in range(n-1):
+            print(t)
+            t = recu(t)
+        return t
+
+
 # 35. Search Insert Position
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
