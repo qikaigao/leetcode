@@ -1,3 +1,53 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 14. Longest Common Prefix
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if (len(strs) == 0):
+            return ''
+        l = len(strs[0])
+        for str in strs:
+            if (len(str) < l):
+                l = len(str)
+        
+        counter = 0
+        for i in range(l):
+            s = strs[0][i]
+            for str in strs:
+                if(s!=str[i]):
+                    return strs[0][0:counter]
+            counter+=1
+            
+        return strs[0][0:counter]
+                
+
+
 # 9. Palindrome Number
 class Solution:
     def isPalindrome(self, x: int) -> bool:
