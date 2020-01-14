@@ -8,8 +8,12 @@
 
 
 
-
-
+# 27. Remove Element
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        while(val in nums):
+            del nums[nums.index(val)]  # or nums.remove(val)
+        return len(nums)
 
 
 # 26. Remove Duplicates from Sorted Array
