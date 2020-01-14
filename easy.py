@@ -22,8 +22,29 @@
 
 
 
-
-
+# 20. Valid Parentheses    ///stack
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if(s==""):
+            return True
+        
+        p = {
+            ')':'(',
+            '}':'{',
+            ']':'['
+        }
+        stack = []
+        for i in s:
+            if i in p.values():
+                stack.append(i)
+            else:
+                if(stack==[] or stack.pop() != p[i]):
+                    return False
+        
+        if(stack==[]):
+            return True
+                    
+                        
 
 
 # 14. Longest Common Prefix
