@@ -6,12 +6,21 @@
 
 
 
-# 1025. Divisor Game
 
 
 
-
-
+# 121. Best Time to Buy and Sell Stock
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if len(prices) < 2:
+            return 0
+        
+        p = prices[1] - prices[0]
+        b = prices[0]
+        for i in range(1,len(prices)):
+            p = max(prices[i] - b, p)
+            b = min(prices[i],b)
+        return max(p,0)
 
 
 # 1025. Divisor Game
@@ -25,7 +34,6 @@ class Solution:
         return f[N]
 
 
-
 # 53. Maximum Subarray
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -35,6 +43,17 @@ class Solution:
             lm = max(nums[i],lm + nums[i])
             gm = max(lm,gm)
         return gm
+
+
+# 53. Maximum Subarray  # this is a algrith
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        ln = len(nums)
+        f = [nums[0]] * ln
+        for i in range(1,ln):
+            f[i] = max(nums[i],f[i-1]+nums[i])
+            print(f[i])
+        return max(f)
 
 
 # 38. Count and Say
