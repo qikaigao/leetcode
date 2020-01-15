@@ -6,6 +6,7 @@
 
 
 
+# 1025. Divisor Game
 
 
 
@@ -13,9 +14,15 @@
 
 
 
-
-
-
+# 1025. Divisor Game
+class Solution:
+    def divisorGame(self, N: int) -> bool:
+        f = [False] * (N+1)
+        for i in range(2, N+1):
+            for x in range(i,0,-1):
+                if i % x == 0:
+                    f[i] = not f[i-x]
+        return f[N]
 
 
 
