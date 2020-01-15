@@ -3,8 +3,23 @@
 
 
 
-
-
+# 392. Is Subsequence
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if s == "":
+            return True
+        
+        ln = len(s)
+        f = [0]*ln
+        f[0] = t.find(s[0])
+        if f[0] == -1:
+            return False
+        for i in range(1,ln):
+            tp = t[f[i-1]+1:].find(s[i])
+            if tp == -1:
+                return False
+            f[i] = tp + f[i-1] + 1
+        return True
 
 
 # 746. Min Cost Climbing Stairs
