@@ -7,6 +7,29 @@
 
 
 
+# 746. Min Cost Climbing Stairs
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        cost.append(0)
+        ln = len(cost)
+        f = [0] * ln
+        f[0] = cost[0]
+        f[1] = cost[1]
+        for i in range(2,ln):
+            f[i] = min(f[i-1],f[i-2]) + cost[i]
+        return f[-1]
+
+
+# 70. Climbing Stairs
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        f = [1] * n
+        if n < 2:
+            return 1
+        f[1] = 2
+        for i in range(2,n):
+            f[i] = f[i-1] + f[i-2]
+        return f[-1]
 
 
 # 121. Best Time to Buy and Sell Stock
