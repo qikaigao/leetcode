@@ -3,6 +3,46 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 198. House Robber
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        
+        ln = len(nums)
+        if ln == 1:
+            return nums[0]
+        
+        f = [[0] * ln for i in range(2)]
+        f[1][0]  = nums[0]
+        for i in range(1,ln):
+            f[1][i] = max(f[0]) + nums[i]
+            f[0][i] = f[1][i-1]
+        return max(max(f))
+            
+
 # 392. Is Subsequence
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
