@@ -20,8 +20,25 @@
 
 
 
+# 303. Range Sum Query - Immutable
+class NumArray:
 
+    def __init__(self, nums: List[int]):
+        if not nums:
+            return
+        self.f = [0] * (len(nums)+1)
+        self.f[0] = nums[0]
+        for i in range(1,len(nums)):
+            self.f[i] = self.f[i-1] + nums[i]
 
+    def sumRange(self, i: int, j: int) -> int:
+        
+        return self.f[j] - self.f[i-1]
+    
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# param_1 = obj.sumRange(i,j)
 
 
 
