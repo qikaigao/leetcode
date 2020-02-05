@@ -13,13 +13,40 @@
 
 
 
+# 1314. Matrix Block Sum
+class Solution:
+    def matrixBlockSum(self, mat: List[List[int]], K: int) -> List[List[int]]:
+        if not mat:
+            return 0
+        m = len(mat)
+        n = len(mat[0])
+        
+        dp = [[0]*n for i in range(m)]
+        re = [[0]*n for i in range(m)]
+        
+        for i in range(m):
+            s = 0
+            for j in range(n):
+                s+=mat[i][j]
+                dp[i][j] = s
+                if i > 0:
+                    dp[i][j]+=dp[i-1][j]
 
+        for i in range(m):
+            for j in range(n):
+                a, b = min(i+K,m-1),min(j+K,n-1)
+                a_,b_ = max(i-K,0),max(j-K,0)
 
-
-
-
-
-
+                re[i][j] = dp[a][b]
+                if a_ > 0:
+                    re[i][j] -= dp[a_-1][b]
+                if b_ > 0:
+                    re[i][j] -= dp[a][b_-1]
+                if a_ > 0 and b_ > 0:
+                    re[i][j] += dp[a_-1][b_-1]
+                
+        return re
+            
 # 303. Range Sum Query - Immutable
 class NumArray:
 
