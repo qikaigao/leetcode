@@ -8,6 +8,29 @@
 
 
 
+# 461. Hamming Distance
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        a = x^y
+        ans = 0
+        for i in range(32):
+            if a&(1<<i):
+                ans += 1 
+        return ans
+
+
+# 461. Hamming Distance
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        a = x^y
+        ans = 0
+        while a:
+            if a&1:
+                ans+=1
+            a = a>>1
+        return ans
+
+
 
 # 1290. Convert Binary Number in a Linked List to Integer
 class Solution:
