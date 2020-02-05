@@ -1,12 +1,23 @@
 
 
+# 191. Number of 1 Bits
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        ans = 0
+        while(n):
+            ans += (n&1)
+            n = n>>1
+        return ans
 
 
-
-
-
-
-
+# 191. Number of 1 Bits
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        ans = 0
+        for i in range(32):
+            if n&(1<<i):
+                ans+=1
+        return ans
 
 
 # 1277. Count Square Submatrices with All Ones
