@@ -1,11 +1,24 @@
 
 
+# 136. Single Number
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        ans = 0
+        for n in nums:
+            ans ^= n
+        return ans
 
 
-
-
-
-
+# 476. Number Complement
+class Solution:
+    def findComplement(self, num: int) -> int:
+        i = 0
+        b = num
+        while b:
+            num ^= (1<<i)
+            b >>= 1
+            i += 1
+        return num
 
 
 # 461. Hamming Distance
