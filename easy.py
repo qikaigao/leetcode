@@ -1,5 +1,24 @@
 
 
+
+
+
+
+
+
+
+
+
+# 1290. Convert Binary Number in a Linked List to Integer
+class Solution:
+    def getDecimalValue(self, head: ListNode) -> int:
+        ans=0
+        while head:
+            ans = (ans<<1)+head.val
+            head = head.next
+        return ans
+
+
 # 191. Number of 1 Bits
 class Solution:
     def hammingWeight(self, n: int) -> int:
