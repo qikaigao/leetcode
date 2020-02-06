@@ -2,8 +2,19 @@
 
 
 
-
-
+# 405. Convert a Number to Hexadecimal
+class Solution:
+    def toHex(self, num: int) -> str:
+        if num == 0:
+            return '0'
+        if num <0:
+            num = num&0xffffffff
+        ans = ''
+        while num:
+            a = num&15
+            num >>= 4
+            ans = (str(a) if a<10 else chr(a+87)) + ans
+        return ans
 
 
 # 190. Reverse Bits
