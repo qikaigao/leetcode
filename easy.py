@@ -5,8 +5,17 @@
 
 
 
-
-
+# 693. Binary Number with Alternating Bits
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        t = n&1
+        n >>= 1
+        while n:
+            if t == n&1:
+                return False
+            t = n&1
+            n >>= 1
+        return True
 
 
 # 268. Missing Number
