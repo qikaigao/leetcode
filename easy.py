@@ -4,8 +4,17 @@
 
 
 
-
-
+# 371. Sum of Two Integers
+var getSum = function(a, b) {
+    c = a^b;
+    d = a&b;
+    while(d){
+        t = c;
+        c = c^(d<<1);
+        d = t&(d<<1);
+    } 
+    return c;
+};
 
 
 # 169. Majority Element
