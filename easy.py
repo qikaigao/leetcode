@@ -1,5 +1,25 @@
 
 
+
+
+
+
+# 342. Power of Four
+class Solution:
+    def isPowerOfFour(self, num: int) -> bool:
+        if num < 0 :
+            return False
+        a = 0
+        i = 0
+        while num:
+            if i&1 and num&1:
+                return False
+            a += num&1
+            num >>= 1
+            i += 1
+        return (True if a==1 else False)
+
+
 # 231. Power of Two
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
