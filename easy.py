@@ -1,7 +1,15 @@
 
 
-
-
+# 231. Power of Two
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        if n < 0:
+            return False
+        a = 0
+        while n:
+            a += (n&1)
+            n >>= 1
+        return (True if a==1 else False)
 
 
 
