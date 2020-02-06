@@ -1,5 +1,22 @@
 
 
+
+
+
+
+
+
+
+
+
+# 268. Missing Number
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        a = [i for i in range(len(nums)+1)]
+        ans = sum(a)-sum(nums)
+        return ans
+
+
 # 371. Sum of Two Integers
 class Solution:
     def getSum(self, a: int, b: int) -> int:
