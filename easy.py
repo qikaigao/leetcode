@@ -1,5 +1,46 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 762. Prime Number of Set Bits in Binary Representation
+class Solution:
+    def countPrimeSetBits(self, L: int, R: int) -> int:
+        def isP(n):
+            if n <= 1:
+                return False
+            if n == 2:
+                return True
+            for k in range(2,n):
+                if n%k == 0:
+                    return False
+            return True
+        ans = 0
+        for i in range(L,R+1):
+            p = 0
+            for j in range(32):
+                if i&(1<<j):
+                    p+=1
+            if isP(p):
+                ans+=1  
+        return ans
+
+
 # 136. Single Number
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
