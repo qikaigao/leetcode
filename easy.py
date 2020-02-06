@@ -13,8 +13,14 @@
 
 
 
-
-
+# 389. Find the Difference
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        S = list(s) + list(t)
+        ans = 0
+        for i in S:
+            ans ^= ord(i)
+        return chr(ans)
 
 
 
