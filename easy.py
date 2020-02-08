@@ -1,7 +1,20 @@
 
 
 
-
+# 1252. Cells with Odd Values in a Matrix
+class Solution:
+    def oddCells(self, n: int, m: int, indices: List[List[int]]) -> int:
+        x = [0]*n
+        y = [0]*m
+        
+        for i in indices:
+            x[i[0]]+=1
+            y[i[1]]+=1
+        ans = 0
+        for i in x:
+            for j in y:
+                ans+=(1 if (i+j)&1 else 0)
+        return ans
 
 
 # 1266. Minimum Time Visiting All Points
