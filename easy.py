@@ -1,6 +1,28 @@
 
 
 
+# 66. Plus One
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        t = 1
+        ans = []
+        for i in digits[-1::-1]:
+            ans = [(i+t)%10] + ans
+            t = (i+t)//10
+        if t!= 0:
+            ans = [t]+ans
+        return ans
+
+
+# 1313. Decompress Run-Length Encoded List
+class Solution:
+    def decompressRLElist(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        ans = []
+        for i in range(0,n-1,2):
+            ans+=[ nums[i+1] for j in range(nums[i]) ]
+        return ans
+
 
 # 405. Convert a Number to Hexadecimal
 class Solution:
