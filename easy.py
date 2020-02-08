@@ -4,6 +4,28 @@
 
 
 
+# 1266. Minimum Time Visiting All Points
+class Solution:
+    def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
+        ans = 0
+        p = points[0]
+        for q in points[1:]:
+            ans+=max(abs(q[0]-p[0]),abs(q[1]-p[1]))
+            p = q
+        return ans
+
+
+# 1295. Find Numbers with Even Number of Digits
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        ans = 0
+        for i in nums:
+            t = 0
+            while i:
+                t+=1
+                i//=10
+            ans+=(0 if t&1 else 1)
+        return ans
 
 
 # 88. Merge Sorted Array
