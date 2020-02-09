@@ -1,5 +1,25 @@
 
 
+
+
+
+
+
+
+
+
+# 509. Fibonacci Number DP
+class Solution:
+    def fib(self, N: int) -> int:
+        if N<2:
+            return N
+        dp = [0]*(N+1)
+        dp[0],dp[1] = 0,1
+        for i in range(2,N+1):
+            dp[i] = dp[i-1]+dp[i-2]
+        return dp[N]
+
+
 # 509. Fibonacci Number
 class Solution:
     def fib(self, N: int) -> int:
