@@ -4,8 +4,17 @@
 
 
 
-
-
+# 1342. Number of Steps to Reduce a Number to Zero
+class Solution:
+    def numberOfSteps (self, num: int) -> int:
+        ans = 0
+        while num:
+            ans += 1
+            if num&1:
+                num-=1
+            else:
+                num//=2
+        return ans
 
 
 # 509. Fibonacci Number DP
