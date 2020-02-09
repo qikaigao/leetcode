@@ -1,6 +1,21 @@
 
 
 
+
+
+
+
+
+# 1304. Find N Unique Integers Sum up to Zero
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        a = n//2
+        ans=[i for i in range(-a,a+1)]
+        if not n&1:
+            ans.pop(a)
+        return ans
+
+
 # 1252. Cells with Odd Values in a Matrix
 class Solution:
     def oddCells(self, n: int, m: int, indices: List[List[int]]) -> int:
