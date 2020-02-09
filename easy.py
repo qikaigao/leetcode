@@ -2,8 +2,20 @@
 
 
 
-
-
+# 977. Squares of a Sorted Array
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+        a = 0
+        b = len(A)-1
+        ans = [0]*len(A)
+        for i in range(len(A)-1,-1,-1):
+            if abs(A[a]) > abs(A[b]):
+                ans[i] = A[a]**2
+                a+=1
+            else:
+                ans[i] = A[b]**2
+                b-=1
+        return ans
 
 
 # 832. Flipping an Image
