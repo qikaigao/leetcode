@@ -1,5 +1,24 @@
 
 
+# 509. Fibonacci Number
+class Solution:
+    def fib(self, N: int) -> int:
+        def f(N):
+            if N < 2:
+                return N
+            else:
+                return f(N-1) + f(N-2)
+        return f(N)
+
+
+# 561. Array Partition I
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        ans=0   
+        for i in range(0,len(nums),2):
+            ans+=nums[i]
+        return ans
 
 
 # 977. Squares of a Sorted Array
