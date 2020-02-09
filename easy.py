@@ -2,6 +2,25 @@
 
 
 
+
+
+
+
+# 832. Flipping an Image
+class Solution:
+    def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
+        m = len(A)
+        n = len(A[0])
+        for i in range(m):
+            for j in range(n):
+                if j < n//2:
+                    t = A[i][j]
+                    A[i][j] = A[i][m-j-1]
+                    A[i][m-j-1] = t
+                A[i][j]=~A[i][j]&1
+        return A
+
+
 # 1299. Replace Elements with Greatest Element on Right Side
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
