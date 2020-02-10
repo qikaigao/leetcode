@@ -3,6 +3,27 @@
 
 
 
+# 1337. The K Weakest Rows in a Matrix
+class Solution:
+    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        m = len(mat)
+        ans = []
+        for i in range(m):
+            a = sum(mat[i])
+            ans.append([a,i])
+        for i in range(m-1):
+            for j in range(m-i-1):
+                if ans[j]>ans[j+1]:
+                    t = ans[j]
+                    ans[j] = ans[j+1]
+                    ans[j+1] = t
+        ans = ans[:k]
+        print(ans)
+        a = []
+        for i in ans:
+            a.append(i[1])
+        return a
+
 
 # 1342. Number of Steps to Reduce a Number to Zero
 class Solution:
