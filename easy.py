@@ -18,7 +18,6 @@ class Solution:
                     ans[j] = ans[j+1]
                     ans[j+1] = t
         ans = ans[:k]
-        print(ans)
         a = []
         for i in ans:
             a.append(i[1])
