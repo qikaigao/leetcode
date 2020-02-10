@@ -3,6 +3,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 1051. Height Checker
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        m = len(heights)
+        ay = heights.copy()
+        for i in range(m-1):
+            for j in range(m-i-1):
+                if heights[j]>heights[j+1]:
+                    t = heights[j]
+                    heights[j] = heights[j+1]
+                    heights[j+1] = t
+        ans = 0
+        for i in range(m):
+            if heights[i] != ay[i]:
+                ans+=1
+        return ans
+
+
 # 1337. The K Weakest Rows in a Matrix
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
