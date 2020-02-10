@@ -13,8 +13,21 @@
 
 
 
-
-
+# 922. Sort Array By Parity II
+class Solution:
+    def sortArrayByParityII(self, A: List[int]) -> List[int]:
+        m = len(A)
+        p = 1
+        for i in range(0,m,2):
+            if A[i]&1:
+                for j in range(p,m,2):
+                    if A[j]&1^1:
+                        t = A[i]
+                        A[i] = A[j]
+                        A[j] = t
+                        p = j+2
+                        break
+        return A
 
 
 # 1051. Height Checker
