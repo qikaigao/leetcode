@@ -3,6 +3,105 @@
 
 
 
+
+
+
+
+
+
+
+
+# 867. Transpose Matrix
+class Solution:
+    def transpose(self, A: List[List[int]]) -> List[List[int]]:
+        m = len(A)
+        n = len(A[0])
+        ans = [[0]*m for i in range(n)]
+        for i in range(m):
+            for j in range(n):
+                ans[j][i] = A[i][j]
+        return ans
+
+
+# 1217. Play with Chips
+class Solution:
+    def minCostToMoveChips(self, chips: List[int]) -> int:
+        a,b = 0, 0
+        for i in chips:
+            if i&1:
+                a+=1
+            else:
+                b+=1
+        return min(a,b)
+
+
+# 1185. Day of the Week
+class Solution:
+    def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
+        # 1 Jan 1971 Fri
+        d = 0
+        for i in range(1971,year):
+            d+=365
+            if (i%4==0 and i%100!=0) or i%400==0:
+                d+=1
+        m = {1,3,5,7,8,10,12}
+        for i in range(1,month):
+            if i != 2:
+                d+=30
+            if i in m:
+                d+=1
+            if i == 2:
+                d+=28
+                if (year%4==0 and year%100!=0) or year%400==0:
+                    d+=1
+        d+=day
+        w = {1:'Friday',2:'Saturday',3:"Sunday",4:'Monday',5:'Tuesday',6:'Wednesday',0:'Thursday'}
+        ans = w[d%7]
+        return ans
+        
+            
+# 999. Available Captures for Rook
+class Solution:
+    def numRookCaptures(self, board: List[List[str]]) -> int:
+        ans = 0
+        x,y = 0,0
+        for i in range(8):
+            for j in range(8):
+                if board[i][j] == 'R':
+                    x,y = i,j
+        def f(dx,dy):
+            for i in range(1,9):
+                if x+dx*i<0 or x+dx*i>7 or y+dy*i<0 or y+dy*i>7:
+                    return 0
+                a = board[x+dx*i][y+dy*i]
+                if a == 'B':
+                    return 0
+                if a == 'p':
+                    return 1
+        ans += f(-1,0)
+        ans += f(0,-1)
+        ans += f(1,0)
+        ans += f(0,1)
+        return ans
+
+
+# 1200. Minimum Absolute Difference
+class Solution:
+    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
+        ans = []
+        m = len(arr)
+        arr.sort()
+        v = arr[1]-arr[0]
+        for i in range(m-1):
+            ab = arr[i+1] - arr[i]
+            if v > ab:
+                v = ab
+                ans = [[arr[i],arr[i+1]]]
+            elif v == ab:
+                ans.append([arr[i],arr[i+1]])
+        return ans
+
+
 # 1002. Find Common Characters
 class Solution:
     def commonChars(self, A: List[str]) -> List[str]:
