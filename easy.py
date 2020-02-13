@@ -3,8 +3,21 @@
 
 
 
-
-
+# 1122. Relative Sort Array    hash solution
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        d = {}
+        ans = []
+        for i in arr1:
+            d[i] = (d[i]+1 if i in d else 1)
+        for i in arr2:
+            ans+=[i]*d[i]
+            del d[i]
+        k = list(d.keys())
+        k.sort()
+        for i in k:
+            ans+=[i]*d[i]
+        return ans
 
 
 
