@@ -8,8 +8,23 @@
 
 
 
-
-
+# 1122. Relative Sort Array
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        ans = []
+        for i in arr2:
+            j = 0
+            m = len(arr1)
+            while j<m:
+                if arr1[j] == i:
+                    ans.append(arr1.pop(j))
+                    m -= 1
+                else:
+                    j+=1
+        if arr1:
+            arr1.sort()
+            ans+=arr1
+        return ans
 
 
 
