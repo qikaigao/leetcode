@@ -3,6 +3,47 @@
 
 
 
+# 1002. Find Common Characters
+class Solution:
+    def commonChars(self, A: List[str]) -> List[str]:
+        ans = []
+        d = {}
+        for j in A[0]:
+            d[j] = d[j] + 1 if j in d else 1
+        for i in A[1:]:
+            t = {}
+            for j in i:
+                t[j] = t[j]+1 if j in t else 1
+            for k in list(d.keys()):
+                if k in t:
+                    d[k] = min(d[k],t[k])
+                else:
+                    del d[k]
+        for i in d:
+            ans += [i]*d[i]
+        return ans
+
+
+# 1160. Find Words That Can Be Formed by Characters
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        ans = 0
+        d = {}
+        for i in chars:
+            d[i] = d[i]+1 if i in d else 1
+        for i in words:
+            t = {}
+            for j in i:
+                t[j] = t[j]+1 if j in t else 1
+            f = True
+            for j in t:
+                if j not in d or d[j]<t[j]:
+                    f = False
+                    break
+            ans += len(i) if f else 0
+        return ans
+
+
 # 1122. Relative Sort Array    hash solution
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
