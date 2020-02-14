@@ -1,14 +1,59 @@
 
 
+# 985. Sum of Even Numbers After Queries
+class Solution:
+    def sumEvenAfterQueries(self, A: List[int], queries: List[List[int]]) -> List[int]:
+        t = 0
+        for j in A:
+            if not j&1:
+                t+=j
+        ans = [t]
+        for i in queries:
+            t = A[i[1]]
+            A[i[1]]+=i[0]
+            s = ans[-1]
+            if not t&1:
+                s -= t
+            if not A[i[1]]&1:
+                s+=A[i[1]]
+            ans.append(s)
+        return ans[1:]
 
 
+# 985. Sum of Even Numbers After Queries
+class Solution:
+    def sumEvenAfterQueries(self, A: List[int], queries: List[List[int]]) -> List[int]:
+        t = 0
+        for j in A:
+            if not j&1:
+                t+=j
+        ans = [t]
+        for i in queries:
+            t = A[i[1]]
+            A[i[1]]+=i[0]
+            if t&1:
+                if not A[i[1]]&1:
+                    ans.append(ans[-1]+A[i[1]])
+                else:
+                    ans.append(ans[-1])
+            else:
+                if not A[i[1]]&1:
+                    ans.append(ans[-1]+i[0])
+                else:
+                    ans.append(ans[-1]-t)
+        return ans[1:]
 
 
-
-
-
-
-
+# 766. Toeplitz Matrix
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        m = len(matrix)
+        n = len(matrix[0])
+        for i in range(m-1):
+            for j in range(n-1):
+                if matrix[i][j] != matrix[i+1][j+1]:
+                    return False
+        return True
 
 
 # 867. Transpose Matrix
