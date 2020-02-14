@@ -1,5 +1,38 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 1260. Shift 2D Grid
+class Solution:
+    def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+        m = len(grid)
+        n = len(grid[0])
+        for r in range(k):
+            t = grid[m-1][n-1]
+            for i in range(m-1,-1,-1):
+                for j in range(n-1,0,-1):
+                    grid[i][j] = grid[i][j-1]
+                if i!=0:
+                    grid[i][0] = grid[i-1][n-1]
+            grid[0][0] = t
+        return grid
+
+
 # 985. Sum of Even Numbers After Queries
 class Solution:
     def sumEvenAfterQueries(self, A: List[int], queries: List[List[int]]) -> List[int]:
