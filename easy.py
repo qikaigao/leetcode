@@ -13,8 +13,18 @@
 
 
 
-
-
+# 1260. Shift 2D Grid
+class Solution:
+    def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+        m,n = len(grid), len(grid[0])
+        for _ in range(k):
+            t = grid[m-1][n-1]
+            for i in range(m):
+                for j in range(n):
+                    a = grid[i][j]
+                    grid[i][j] = t
+                    t = a
+        return grid
 
 
 # 1260. Shift 2D Grid
