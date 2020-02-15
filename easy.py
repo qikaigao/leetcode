@@ -9,8 +9,26 @@
 
 
 
-
-
+# 559. Maximum Depth of N-ary Tree
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+class Solution:
+    def maxDepth(self, root: 'Node') -> int:
+        self.ans = 0
+        def dfs(n,a):
+            if not n:
+                return
+            a+=1
+            self.ans = max(self.ans,a)
+            for i in range(len(n.children)):
+                dfs(n.children[i],a)
+        dfs(root,0)
+        return self.ans
 
 
 # 1260. Shift 2D Grid
